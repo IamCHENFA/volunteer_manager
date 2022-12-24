@@ -13,8 +13,8 @@
             <h3 class="text-center">登录</h3>
             <form action="/login" method="post">
                 <div class="form-group">
-                    <label for="username">用户名</label>
-                    <input type="text" class="form-control" id="username" name="username">
+                    <label for="account">用户名</label>
+                    <input type="text" class="form-control" id="account" name="account">
                 </div>
                 <div class="form-group">
                     <label for="password">密码</label>
