@@ -3,5 +3,7 @@ package com.shou.service;
 import com.shou.pojo.Users;
 
 public interface UserService {
-    int selectUser(Users users);
+    Users selectUser(Users users);
+
+    int addUser(Users user);
 }

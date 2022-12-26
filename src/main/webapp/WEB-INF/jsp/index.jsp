@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=gb2312"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +25,7 @@
             </form>
             <br>
             <p>Don't have an account? <a href="/register">Sign up here</a>.</p>
+            <p>${msg}</p>
         </div>
     </div>
 </div>

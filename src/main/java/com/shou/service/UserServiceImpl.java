@@ -11,7 +11,17 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public int selectUser(Users users) {
+    public Users selectUser(Users users) {
         return userMapper.selectUserByAccountAndPassword(users);
+    }
+
+    @Override
+    public int addUser(Users user) {
+        //加之前查询一下是否存在
+        int isExist = userMapper.selectUserByAccount(user.getAccount());
+        if(isExist == 1){
+            return 0;
+        }
+        return userMapper.addUser(user);
     }
 }

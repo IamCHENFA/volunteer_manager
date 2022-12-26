@@ -1,16 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
   User: 11937
-  Date: 2022/12/25
-  Time: 2:59
+  Date: 2022/12/26
+  Time: 17:17
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>教师界面</title>
 </head>
 <body>
-    登陆成功！
+<h1>教师界面</h1>
 </body>
 </html>
