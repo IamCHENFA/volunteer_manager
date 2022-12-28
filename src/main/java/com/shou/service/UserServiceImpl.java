@@ -1,12 +1,12 @@
 package com.shou.service;
 
-import com.shou.mapper.IUserMapper;
+import com.shou.mapper.UserMapper;
 import com.shou.pojo.Users;
 
 public class UserServiceImpl implements UserService{
-    private IUserMapper userMapper;
+    private UserMapper userMapper;
 
-    public void setUserMapper(IUserMapper userMapper) {
+    public void setUserMapper(UserMapper userMapper) {
         this.userMapper = userMapper;
     }
 
