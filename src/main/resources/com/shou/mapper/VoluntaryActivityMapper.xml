@@ -3,23 +3,36 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shou.mapper.VoluntaryActivityMapper">
+
     <!-- 添加活动 -->
     <insert id="insertActivity" parameterType="com.shou.pojo.VoluntaryActivity">
         INSERT INTO voluntary_activity (vname, management_teacher_account, vinfo)
         VALUES (#{vName}, #{managementTeacherAccount}, #{vInfo})
     </insert>
+
     <!-- 删除活动 -->
     <delete id="deleteActivity" parameterType="int">
         DELETE FROM voluntary_activity WHERE vid = #{vid}
     </delete>
+
     <!-- 修改活动信息 -->
     <update id="updateActivity" parameterType="com.shou.pojo.VoluntaryActivity">
         UPDATE voluntary_activity
         SET vname = #{vname}, management_teacher_account = #{managementTeacherAccount}, vinfo = #{vinfo}
         WHERE vid = #{vid}
     </update>
-    <!-- 查询活动信息 -->
-    <select id="selectActivity" resultType="com.shou.pojo.VoluntaryActivity" parameterType="int">
-        SELECT * FROM voluntary_activity
+
+    <!-- 查询所有活动信息 -->
+    <select id="selectAll" resultMap="tempAct">
+        select * from voluntary_activity
     </select>
+
+    <select id="selectByTeacher" resultMap="tempAct" parameterType="String">
+        select * from voluntary_activity where management_teacher_account = #{account}
+    </select>
+
+
+    <resultMap id="tempAct" type="VoluntaryActivity">
+        <result property="managementTeacherAccount" column="management_teacher_account"/>
+    </resultMap>
 </mapper>

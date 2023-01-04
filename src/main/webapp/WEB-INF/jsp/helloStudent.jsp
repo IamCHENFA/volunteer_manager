@@ -1,8 +1,9 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>在线尝试 Bootstrap 实例</title>
+    <title>学生</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -15,7 +16,7 @@
             <h3>Hello，学生</h3>
             <ul class="nav nav-tabs">
                 <li class="active">
-                    <a href="#">所有活动</a>
+                    <a href="#" >所有活动</a>
                 </li>
                 <li>
                     <a href="#">我的活动</a>
@@ -43,91 +44,24 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th>
-                        编号
-                    </th>
-                    <th>
-                        活动名
-                    </th>
-                    <th>
-                        活动日期
-                    </th>
-                    <th>
-                        老师
-                    </th>
+                    <th>编号</th>
+                    <th>活动名</th>
+                    <th>活动介绍</th>
+                    <th>老师</th>
+                    <th>操作</th>
                 </tr>
                 </thead>
+<%--                从list中遍历--%>
                 <tbody>
-                <tr>
-                    <td>
-                        1
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        01/04/2012
-                    </td>
-                    <td>
-                        李老师
-                    </td>
-                </tr>
-                <tr class="success">
-                    <td>
-                        1
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        01/04/2012
-                    </td>
-                    <td>
-                        陈老师
-                    </td>
-                </tr>
-                <tr class="error">
-                    <td>
-                        2
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        02/04/2012
-                    </td>
-                    <td>
-                        王老师
-                    </td>
-                </tr>
-                <tr class="warning">
-                    <td>
-                        3
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        03/04/2012
-                    </td>
-                    <td>
-                        赵老师
-                    </td>
-                </tr>
-                <tr class="info">
-                    <td>
-                        4
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        04/04/2012
-                    </td>
-                    <td>
-                        米老师
-                    </td>
-                </tr>
+                <c:forEach var="voluntaryActivity" items="${activityList}">
+                    <tr>
+                        <td>${voluntaryActivity.vid}</td>
+                        <td>${voluntaryActivity.VName}</td>
+                        <td>${voluntaryActivity.VInfo}</td>
+                        <td>${voluntaryActivity.managementTeacherAccount}</td>
+                        <td>选择</td>
+                    </tr>
+                </c:forEach>
                 </tbody>
             </table>
         </div>

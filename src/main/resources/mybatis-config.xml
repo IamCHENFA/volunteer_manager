@@ -11,5 +11,7 @@
     </typeAliases>
     <mappers>
         <mapper resource="com/shou/mapper/UserMapper.xml"/>
+        <mapper resource="com/shou/mapper/VoluntaryActivityMapper.xml"/>
+        <mapper resource="com/shou/mapper/SelectMapper.xml"/>
     </mappers>
 </configuration>
