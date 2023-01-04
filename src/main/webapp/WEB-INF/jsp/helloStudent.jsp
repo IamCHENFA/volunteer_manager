@@ -16,27 +16,16 @@
             <h3>Hello，学生</h3>
             <ul class="nav nav-tabs">
                 <li class="active">
-                    <a href="#" >所有活动</a>
+                    <a href="#" >可选活动</a>
                 </li>
                 <li>
-                    <a href="#">我的活动</a>
+                    <a href="/studentSelectList">我的活动</a>
                 </li>
                 <li class="dropdown pull-right">
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">下拉<strong class="caret"></strong></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#">操作</a>
-                        </li>
-                        <li>
-                            <a href="#">设置栏目</a>
-                        </li>
-                        <li>
-                            <a href="#">更多设置</a>
-                        </li>
-                        <li class="divider">
-                        </li>
-                        <li>
-                            <a href="#">分割线</a>
+                            <a href="index.jsp">退出登录</a>
                         </li>
                     </ul>
                 </li>
@@ -59,7 +48,7 @@
                         <td>${voluntaryActivity.VName}</td>
                         <td>${voluntaryActivity.VInfo}</td>
                         <td>${voluntaryActivity.managementTeacherAccount}</td>
-                        <td>选择</td>
+                        <td><a href="isSelect?vid=${voluntaryActivity.vid}" onclick="return(confirm('确认选择?'))">选择</a>></td>
                     </tr>
                 </c:forEach>
                 </tbody>

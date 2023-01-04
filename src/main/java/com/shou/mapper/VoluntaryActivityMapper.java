@@ -11,7 +11,9 @@ public interface VoluntaryActivityMapper {
     int deleteActivity(int vid);
     // 修改活动信息
     int updateActivity(VoluntaryActivity voluntaryActivity);
-    List<VoluntaryActivity> selectAll();
+    List<VoluntaryActivity> selectAll(String account);
 
     List<VoluntaryActivity> selectByTeacher(String account);
+
+    VoluntaryActivity selectByVid(int vid);
 }

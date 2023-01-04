@@ -6,10 +6,17 @@
     <insert id="addSelect" parameterType="Select">
         insert into `select`(s_account, vid) values (#{sAccount}, #{vid})
     </insert>
-    <select id="selectByStudent" parameterType="String" resultType="Select">
-        select * from `select` where s_account = #{account}
+    <select id="selectByStudent" parameterType="String" resultMap="actAndInfo">
+        select s.vid,vname,management_teacher_account,score from voluntary_activity v,`select` s
+        where s.s_account = #{account} and s.vid = v.vid
     </select>
     <delete id="deleteSelect" parameterType="Select">
         delete from `select` where s_account = #{sAccount} and vid = #{vid}
     </delete>
+    <delete id="deleteAllAboutAct" parameterType="int">
+        delete from `select` where vid = #{vid};
+    </delete>
+    <resultMap id="actAndInfo" type="ActScInfo">
+        <result property="tAccount" column="management_teacher_account"/>
+    </resultMap>
 </mapper>

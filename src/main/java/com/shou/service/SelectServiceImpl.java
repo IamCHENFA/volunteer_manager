@@ -1,6 +1,7 @@
 package com.shou.service;
 
 import com.shou.mapper.SelectMapper;
+import com.shou.pojo.ActScInfo;
 import com.shou.pojo.Select;
 
 import java.util.List;
@@ -19,13 +20,18 @@ public class SelectServiceImpl implements SelectService{
     }
 
     @Override
-    public List<Select> selectByStudent(String account) {
-        List<Select> selectList = selectMapper.selectByStudent(account);
-        return selectList;
+    public List<ActScInfo> selectByStudent(String account) {
+        List<ActScInfo> actScInfoList = selectMapper.selectByStudent(account);
+        return actScInfoList;
     }
 
     @Override
     public int deleteSelect(Select select) {
         return selectMapper.deleteSelect(select);
+    }
+
+    @Override
+    public int deleteAllAboutAct(int vid) {
+        return selectMapper.deleteAllAboutAct(vid);
     }
 }

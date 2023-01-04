@@ -26,18 +26,7 @@
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">下拉<strong class="caret"></strong></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#">操作</a>
-                        </li>
-                        <li>
-                            <a href="#">设置栏目</a>
-                        </li>
-                        <li>
-                            <a href="#">更多设置</a>
-                        </li>
-                        <li class="divider">
-                        </li>
-                        <li>
-                            <a href="#">分割线</a>
+                            <a href="index.jsp">退出登录</a>
                         </li>
                     </ul>
                 </li>
@@ -58,7 +47,11 @@
                         <td>${voluntaryActivity.vid}</td>
                         <td>${voluntaryActivity.VName}</td>
                         <td>${voluntaryActivity.VInfo}</td>
-                        <td>编辑 | 删除</td>
+                        <td>
+                            <a href="updateAct?vid=${voluntaryActivity.vid}">编辑</a>>
+                             |
+                            <a href="isDeleteAct?vid=${voluntaryActivity.vid}&t=${voluntaryActivity.managementTeacherAccount}" onclick="return(confirm('确认删除活动?'))">删除</a>>
+                        </td>
                     </tr>
                 </c:forEach>
                 </tbody>

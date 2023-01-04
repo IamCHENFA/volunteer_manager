@@ -5,7 +5,7 @@
 <mapper namespace="com.shou.mapper.VoluntaryActivityMapper">
 
     <!-- 添加活动 -->
-    <insert id="insertActivity" parameterType="com.shou.pojo.VoluntaryActivity">
+    <insert id="insertActivity" parameterType="VoluntaryActivity">
         INSERT INTO voluntary_activity (vname, management_teacher_account, vinfo)
         VALUES (#{vName}, #{managementTeacherAccount}, #{vInfo})
     </insert>
@@ -16,21 +16,26 @@
     </delete>
 
     <!-- 修改活动信息 -->
-    <update id="updateActivity" parameterType="com.shou.pojo.VoluntaryActivity">
+    <update id="updateActivity" parameterType="VoluntaryActivity">
         UPDATE voluntary_activity
-        SET vname = #{vname}, management_teacher_account = #{managementTeacherAccount}, vinfo = #{vinfo}
+        SET vname = #{vName}, vinfo = #{vInfo}
         WHERE vid = #{vid}
     </update>
 
     <!-- 查询所有活动信息 -->
-    <select id="selectAll" resultMap="tempAct">
-        select * from voluntary_activity
+    <select id="selectAll" resultMap="tempAct" parameterType="String">
+        select * from voluntary_activity where vid not in (
+            select vid from `select` where `select`.s_account = #{account}
+            )
     </select>
 
     <select id="selectByTeacher" resultMap="tempAct" parameterType="String">
         select * from voluntary_activity where management_teacher_account = #{account}
     </select>
 
+    <select id="selectByVid" parameterType="int" resultMap="tempAct">
+        select * from voluntary_activity where vid = #{vid}
+    </select>
 
     <resultMap id="tempAct" type="VoluntaryActivity">
         <result property="managementTeacherAccount" column="management_teacher_account"/>

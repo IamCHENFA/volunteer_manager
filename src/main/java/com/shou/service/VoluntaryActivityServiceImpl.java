@@ -28,8 +28,8 @@ public class VoluntaryActivityServiceImpl implements VoluntaryActivityService{
     }
 
     @Override
-    public List<VoluntaryActivity> selectAll() {
-        List<VoluntaryActivity> vList = activityMapper.selectAll();
+    public List<VoluntaryActivity> selectAll(String account) {
+        List<VoluntaryActivity> vList = activityMapper.selectAll(account);
         return vList;
     }
 
@@ -37,5 +37,10 @@ public class VoluntaryActivityServiceImpl implements VoluntaryActivityService{
     public List<VoluntaryActivity> selectByTeacher(String account) {
         List<VoluntaryActivity> vList = activityMapper.selectByTeacher(account);
         return vList;
+    }
+
+    @Override
+    public VoluntaryActivity selectByVid(int vid) {
+        return activityMapper.selectByVid(vid);
     }
 }

@@ -16,7 +16,9 @@ public interface VoluntaryActivityService {
     int updateActivity(VoluntaryActivity voluntaryActivity);
 
     //查询所有活动
-    List<VoluntaryActivity> selectAll();
+    List<VoluntaryActivity> selectAll(String account);
 
     List<VoluntaryActivity> selectByTeacher(String account);
+
+    VoluntaryActivity selectByVid(int vid);
 }

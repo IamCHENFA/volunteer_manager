@@ -41,7 +41,7 @@ public class UserController {
 
             switch (tUser.getIdentity()){
                 case "学生":
-                    List<VoluntaryActivity> activityList = activityService.selectAll();
+                    List<VoluntaryActivity> activityList = activityService.selectAll(tUser.getAccount());
                     for (VoluntaryActivity activity : activityList) {
                         System.out.println(activity);
                     }
