@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>学生</title>
+    <title>打分</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -15,11 +15,11 @@
         <div class="col-md-12 column">
             <h3>Hello，老师</h3>
             <ul class="nav nav-tabs">
-                <li class="active">
-                    <a href="#" >我管理的活动</a>
-                </li>
                 <li>
-                    <a href="/addScore" >打分</a>
+                    <a href="/teacherAct" >我管理的活动</a>
+                </li>
+                <li class="active">
+                    <a href="#" >打分</a>
                 </li>
                 <li>
                     <a href="/addNewActivity">发布新活动</a>
@@ -38,22 +38,30 @@
                 <tr>
                     <th>编号</th>
                     <th>活动名</th>
-                    <th>活动介绍</th>
-                    <th>操作</th>
+                    <th>学生</th>
+                    <th>分数</th>
+                    <th>打分</th>
                 </tr>
                 </thead>
                 <%--                从list中遍历--%>
                 <tbody>
-                <c:forEach var="voluntaryActivity" items="${activityListT}">
+                <c:forEach var="act" items="${actScInfoList}">
                     <tr>
-                        <td>${voluntaryActivity.vid}</td>
-                        <td>${voluntaryActivity.VName}</td>
-                        <td>${voluntaryActivity.VInfo}</td>
+                        <td>${act.vid}</td>
+                        <td>${act.VName}</td>
+                        <td>${act.TAccount}</td>
+                        <td>${act.score}</td>
                         <td>
-                            <a href="updateAct?vid=${voluntaryActivity.vid}">编辑</a>>
-                             |
-                            <a href="isDeleteAct?vid=${voluntaryActivity.vid}&t=${voluntaryActivity.managementTeacherAccount}" onclick="return(confirm('确认删除活动?'))">删除</a>>
+                            <form action="/doAddScore" method="post">
+                                <input type="number" min="0" max="100" name="score" id="score" value="${act.score}">
+                                <input type="text" name="account" id="account" value="${act.TAccount}" hidden>
+                                <input type="number" name="vid" id="vid" value="${act.vid}" hidden>
+                                <div class="btn-group">
+                                    <button type="submit" value="打分" class="btn btn-default btn-block"></button>
+                                </div>
+                            </form>
                         </td>
+
                     </tr>
                 </c:forEach>
                 </tbody>

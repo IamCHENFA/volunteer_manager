@@ -13,4 +13,8 @@ public interface SelectMapper {
     int deleteSelect(Select select);
 
     int deleteAllAboutAct(int vid);
+
+    List<ActScInfo> selectByTeacher(String account);
+
+    int updateScore(Select select);
 }

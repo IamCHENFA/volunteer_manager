@@ -71,4 +71,27 @@ public class SelectController {
         mv.setViewName("studentSelectList");
         return mv;
     }
+    @RequestMapping("/addScore")
+    public ModelAndView addScore(HttpServletRequest request){
+        ModelAndView mv = new ModelAndView();
+        HttpSession session = request.getSession();
+        Users user = (Users) session.getAttribute("user");
+        List<ActScInfo> actScInfoList = selectService.selectByTeacher(user.getAccount());
+        mv.addObject("actScInfoList", actScInfoList);
+        mv.setViewName("addScore");
+        return mv;
+    }
+    @RequestMapping("doAddScore")
+    public ModelAndView doAddScore(HttpServletRequest request,String account, Integer vid, Integer score){
+        ModelAndView mv = new ModelAndView();
+        HttpSession session = request.getSession();
+        Select select = new Select(account, vid, score);
+        System.out.println(select);
+        selectService.updateScore(select);
+        Users user = (Users) session.getAttribute("user");
+        List<ActScInfo> actScInfoList = selectService.selectByTeacher(user.getAccount());
+        mv.addObject("actScInfoList", actScInfoList);
+        mv.setViewName("addScore");
+        return mv;
+    }
 }

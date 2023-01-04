@@ -16,7 +16,18 @@
     <delete id="deleteAllAboutAct" parameterType="int">
         delete from `select` where vid = #{vid};
     </delete>
+    <select id="selectByTeacher" parameterType="String" resultMap="scoreMap">
+        select s.vid,vname,s_account,score from `select` s,`voluntary_activity` v
+        where v.management_teacher_account = #{account} and s.vid=v.vid
+    </select>
+    <update id="updateScore" parameterType="Select">
+        update `select` set score = #{score}
+        where vid = #{vid} and s_account = #{sAccount}
+    </update>
     <resultMap id="actAndInfo" type="ActScInfo">
         <result property="tAccount" column="management_teacher_account"/>
+    </resultMap>
+    <resultMap id="scoreMap" type="ActScInfo">
+        <result property="tAccount" column="s_account"/>
     </resultMap>
 </mapper>

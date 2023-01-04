@@ -34,4 +34,15 @@ public class SelectServiceImpl implements SelectService{
     public int deleteAllAboutAct(int vid) {
         return selectMapper.deleteAllAboutAct(vid);
     }
+
+    @Override
+    public List<ActScInfo> selectByTeacher(String account) {
+        List<ActScInfo> actScInfoList = selectMapper.selectByTeacher(account);
+        return actScInfoList;
+    }
+
+    @Override
+    public int updateScore(Select select) {
+        return selectMapper.updateScore(select);
+    }
 }

@@ -4,7 +4,6 @@ import com.shou.pojo.Users;
 import com.shou.pojo.VoluntaryActivity;
 import com.shou.service.SelectService;
 import com.shou.service.VoluntaryActivityService;
-import com.shou.service.VoluntaryActivityServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -77,6 +76,16 @@ public class VoluntaryActivityController {
         selectService.deleteAllAboutAct(vid);
         activityService.deleteActivity(vid);
         List<VoluntaryActivity> activityListT = activityService.selectByTeacher(t);
+        mv.addObject("activityListT", activityListT);
+        mv.setViewName("helloTeacher");
+        return mv;
+    }
+    @RequestMapping("/teacherAct")
+    public ModelAndView teacherAct(HttpServletRequest request){
+        ModelAndView mv = new ModelAndView();
+        HttpSession session = request.getSession();
+        Users user = (Users) session.getAttribute("user");
+        List<VoluntaryActivity> activityListT = activityService.selectByTeacher(user.getAccount());
         mv.addObject("activityListT", activityListT);
         mv.setViewName("helloTeacher");
         return mv;
