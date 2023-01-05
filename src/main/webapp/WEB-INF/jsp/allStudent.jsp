@@ -15,11 +15,11 @@
         <div class="col-md-12 column">
             <h3>Hello，管理员</h3>
             <ul class="nav nav-tabs">
-                <li class="active">
-                    <a href="" >教师账号</a>
-                </li>
                 <li>
-                    <a href="/allStudents">学生账号</a>
+                    <a href="/allTeachers">教师账号</a>
+                </li>
+                <li class="active">
+                    <a href="">学生账号</a>
                 </li>
                 <li class="dropdown pull-right">
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">下拉<strong class="caret"></strong></a>
@@ -40,11 +40,11 @@
                 </thead>
                 <%--从list中遍历--%>
                 <tbody>
-                <c:forEach var="teacher" items="${teacherList}">
+                <c:forEach var="student" items="${studentList}">
                     <tr>
-                        <td>${teacher.account}</td>
-                        <td>${teacher.password}</td>
-                        <td><a href="deleteTeacher?account=${teacher.account}" onclick="return(confirm('确认删除?'))">删除</a>></td>
+                        <td>${student.account}</td>
+                        <td>${student.password}</td>
+                        <td><a href="deleteStudent?account=${student.account}" onclick="return(confirm('确认删除?'))">删除</a>></td>
                     </tr>
                 </c:forEach>
                 </tbody>

@@ -16,4 +16,6 @@ public interface VoluntaryActivityMapper {
     List<VoluntaryActivity> selectByTeacher(String account);
 
     VoluntaryActivity selectByVid(int vid);
+
+    int deleteAllAboutTeacher(String account);
 }

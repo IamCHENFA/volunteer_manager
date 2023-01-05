@@ -3,7 +3,7 @@
 <html>
 <head>
 
-  <title>客户登记</title>
+  <title>添加新的活动</title>
   <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
 </head>

@@ -12,4 +12,13 @@
     <insert id="addUser" parameterType="Users">
         insert into users values (#{account}, #{password}, #{identity})
     </insert>
+    <select id="selectAllTeachers" resultType="Users">
+        select * from users where identity = '教师'
+    </select>
+    <select id="selectAllStudents" resultType="Users">
+        select * from users where identity = '学生'
+    </select>
+    <delete id="deleteUser" parameterType="String">
+        delete from users where account = #{account}
+    </delete>
 </mapper>

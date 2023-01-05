@@ -43,4 +43,9 @@ public class VoluntaryActivityServiceImpl implements VoluntaryActivityService{
     public VoluntaryActivity selectByVid(int vid) {
         return activityMapper.selectByVid(vid);
     }
+
+    @Override
+    public int deleteAllAboutTeacher(String account) {
+        return activityMapper.deleteAllAboutTeacher(account);
+    }
 }

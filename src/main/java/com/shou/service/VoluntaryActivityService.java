@@ -21,4 +21,6 @@ public interface VoluntaryActivityService {
     List<VoluntaryActivity> selectByTeacher(String account);
 
     VoluntaryActivity selectByVid(int vid);
+
+    int deleteAllAboutTeacher(String account);
 }

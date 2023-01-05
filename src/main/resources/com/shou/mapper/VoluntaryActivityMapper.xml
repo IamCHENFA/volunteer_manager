@@ -37,6 +37,9 @@
         select * from voluntary_activity where vid = #{vid}
     </select>
 
+    <delete id="deleteAllAboutTeacher" parameterType="String">
+        delete from voluntary_activity where management_teacher_account = #{account}
+    </delete>
     <resultMap id="tempAct" type="VoluntaryActivity">
         <result property="managementTeacherAccount" column="management_teacher_account"/>
     </resultMap>

@@ -16,6 +16,9 @@
     <delete id="deleteAllAboutAct" parameterType="int">
         delete from `select` where vid = #{vid};
     </delete>
+    <delete id="deleteAllAboutStudent" parameterType="String">
+        delete from `select` where s_account = #{account}
+    </delete>
     <select id="selectByTeacher" parameterType="String" resultMap="scoreMap">
         select s.vid,vname,s_account,score from `select` s,`voluntary_activity` v
         where v.management_teacher_account = #{account} and s.vid=v.vid
